@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>двери</title>
+    <style> 
+    
+        div {
+                height: 400px;
+                width: 800px;  
+            } 
+             
+        
+        .glav{  
+            line-height: 350px;            /* выставляем расстояние между строками текста */
+            text-align: center;
+            font-size: 50px;
+                position: relative;/* Положение элемента устанавливается относительно его исходного места. Добавление свойств left, top, right и bottom изменяет позицию элемента и сдвигает его в ту или иную сторону от первоначального расположения. */
+                display: inline-block;/* блочный элемент, который обтекается другими элементами веб-страницы подобно встроенному элементу */
+                height: 400px;             /* длина */
+                margin: 0 2em 2em 0;       /* отступы */
+                opacity: .7;               /* прозрачность */
+                background: #E4E1E4;     /* задний фон */
+                -webkit-perspective: 400px;/* Придает глубину сцене, заставляя элементы, расположенные дальше от зрителя, казаться меньше.
+                                                применяется только к дочерним элементам элемента, а не к преобразованию самого элемента */
+                -moz-perspective: 400px;      /* для mozila */
+                -o-perspective: 400px;/* для opera */
+                perspective: 400px;/* Свойство perspectiveCSS дает элементу трехмерное пространство, влияя на расстояние между плоскостью Z и пользователем.
+                                    Сила эффекта определяется стоимостью. Чем меньше значение, тем ближе вы подходите к 
+                                    плоскости Z и тем более впечатляющим будет визуальный эффект.  */
+                -webkit-transform-style: preserve-3d; /* стили трансформ 3D для -webkit- */
+                -moz-transform-style: preserve-3d;/* для mozila */
+                -o-transform-style: preserve-3d;/* для opera */
+                transform-style: preserve-3d;/* стили трансформ 3D */
+            }
+
+        a .dver1{
+                margin: 0;                /* привязываем дочерний блок к родительскому элементу */
+                width: 400px;                            /* ширина */
+                height: 400px;                          /* высота */         
+                position: absolute;/* позиционирование */
+                top: 0;
+                /* позиционируем блоки створок по отношению родителя */
+                left: 0;
+                transform-origin: bottom left;/* ось трансформации */
+                background-color: rgb(3, 3, 255);/* фон */
+                transition: all 0.04s linear 0s;/* условия перехода двери закрываются резко за 0.04сек*/
+                z-index: 3;/* верхний слой */
+                }               
+        
+        a .dver2{           
+                margin: 0;
+                width: 400px;                            /* ширина */
+                height: 400px;                          /* высота */
+                background-color: rgb(3, 3, 255);/* фон */
+                position: absolute;          /* позиционирование */    
+                top: 0;
+                left: 400px;
+                transform-origin: bottom right;/* ось трансформации */
+                float: right;/* обтекание */
+                transition: all 0.04s linear 0s;/* условия перехода двери закрываются резко за 0.04сек*/
+                z-index: 3;}/* верхний слой */
+
+                .glav:hover .dver1{transition: all 2s linear 0s;/* условия перехода двери открываются плавно за 2сек*/
+                                   transform: rotateY(90deg);}/* поворот после наведения мышы на glav для dver1 */
+
+                .glav:hover .dver2{transition: all 2s linear 0s;/* условия перехода двери открываются плавно за 2сек*/
+                                   transform: rotateY(-90deg);}/* поворот после наведения мышы на glav для dver2 */
+
+    </style>
+</head>
+
+<body>
+    <div class="glav">
+        <div>HELLO</div>
+        <a href="#">         
+            <p class="dver1"></p>
+            <p class="dver2"></p>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>без таблицы</title>
+    <style>
+        body {font-style: monospace;
+              margin: 2%;}
+        .col{display: inline-block;
+            width: 500px;
+             height: 250px;}
+/* параметры для блока с картинкой */
+        .col2{overflow: hidden; /* Обрезаем содержимое за пределами блока */}
+/* параметры для блока с текстом */
+        .col1{background-color:rgb(216, 213, 213);
+              text-align: center;
+              font-size: larger;
+              line-height: 250px; /* выставляем расстояние между строками текста */}
+        
+
+/* параметры для всего блока целиком */
+        article { width:1000px;
+                  background-color: rgb(177, 211, 231);
+                  position: relative;
+                  left: 50px;
+                }
+        
+/* выставляем каждый из 6 блоков на экране */
+        .c1{ position: absolute;/* позиционирование абсолютное относительно родителя */
+             top: 0;
+             left: 0;}
+        .c2{ position: absolute;/* позиционирование */
+             top: 0;
+             left: 501px;}        
+        .c3{ position: absolute;/* позиционирование */
+            top: 251px;
+            left: 0;}        
+        .c4{ position: absolute;/* позиционирование */
+            top:251px ;
+            left: 501px;}        
+        .c5{ position: absolute;/* блок полностью перемещен по координатам*/
+            top: 502px;
+            left: 0;}        
+        .c6{ position: absolute;/* позиционирование */
+            top: 502px;
+            left: 501px;}
+        .no1{position: relative;
+             z-index: 1;}
+        .no2{position: relative;
+            z-index: 1;}
+        .no3{position: relative;
+            z-index: 1;}/* работает только при position: relative; */
+                        
+        
+        .no1:hover img{transform: scale(2);}      
+        .no2:hover img{transform: scale(2);}
+        .no3:hover img{transform: scale(2);}
+        img {width: 100%;}
+        
+              
+        .no1:hover .overlay1 {opacity: 1;  /* прозрачность-непрозрачный */
+                             pointer-events: all;}  /* CSS-свойство pointer-events позволяет контролировать события, при которых 
+                                                    элемент может стать объектом события мыши. Если это свойство не задано, то 
+                                                    к содержимому SVG будут  применяться характеристики значения visiblePainted. */
+                                                    
+        
+        .no2:hover .overlay2 {opacity: 1;  /* прозрачность-непрозрачный */
+                             pointer-events: all;}  /* CSS-свойство pointer-events позволяет контролировать события, при которых 
+                                                    элемент может стать объектом события мыши. Если это свойство не задано, то 
+                                                    к содержимому SVG будут  применяться характеристики значения visiblePainted. */
+                                                    
+       
+        .no3:hover .overlay3 {opacity: 1;  /* прозрачность-непрозрачный */
+                             pointer-events: all;}  /* CSS-свойство pointer-events позволяет контролировать события, при которых 
+                                                    элемент может стать объектом события мыши. Если это свойство не задано, то 
+                                                    к содержимому SVG будут  применяться характеристики значения visiblePainted. */
+        .container{ width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    }
+        .container::after  { content: '';
+                             width: 500px;
+                             height: 250px;
+                             position: absolute;
+                             top: 0;
+                             left: 0;
+                             background: #070707;
+                             opacity: 0;
+                             transition: 1s;} 
+        .no1:hover .container::after{ transition: .5s;
+                                      opacity: .5;}
+        .no2:hover .container::after{ transition: .5s;
+                                      opacity: .5;}
+        .no3:hover .container::after{ transition: .5s;
+                                      opacity: .5;}
+
+  
+    </style> 
+</head>  
+
+<body>
+    <article>      
+        <div class="no1">            
+            <div class="col1 col c1">HELLO WORLD!
+                    <div class="container"></div> <!-- класс наложение 1-->
+            </div>
+
+            <div class="col2 col c2"><img src="gif/1.jpg" alt="">
+                    <div class="container"></div> <!-- класс наложение 1-->
+            </div>            
+        </div>
+
+        <div class="no2">            
+            <div class="col2 col c3"><img src="gif/1.jpg" alt="">
+                <div class="container"></div><!-- класс наложение 2-->
+            </div>
+
+            <div class="col1 col c4">HELLO WORLD!
+                <div class="container"></div><!-- класс наложение 2-->
+            </div>
+        </div>
+        
+        <div class="no3">            
+            <div class="col1 col c5">HELLO WORLD!
+                <div class="container"></div><!-- класс наложение 3-->  
+            </div>
+                
+            <div class="col2 col c6"><img src="gif/1.jpg" alt="">
+                <div class="container"></div><!-- класс наложение 3-->
+            </div>    
+        </div>
+                   
+    </article>
+</body>
+</html>

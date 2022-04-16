@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>много картинок анимация</title>
+    <style>
+        table{border-collapse: collapse;}        /* убираем рамки таблицы */
+        body {font-style: monospace;
+              margin-top: 5%;}
+
+        article {width:1000px;
+        background-color: rgb(177, 211, 231);
+        position: relative;
+    }
+
+        .no1:hover .col2{background-size: 140%;}      
+        .no2:hover .col2{background-size: 140%;}
+        .no3:hover .col2{background-size: 140%;}
+        img {width: 100%;}
+
+       .col{width: 500px;
+            height: 250px;}
+
+        .col2{background-image: url(gif/1.jpg);
+              background-size: 100%;}
+
+        .col1{background-color:rgb(216, 213, 213);
+              text-align: center;
+              vertical-align:middle;
+              font-size: larger;}
+              .container{ width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    }
+        .container::after  { content: '';
+                             width: 500px;
+                             height: 252px;
+                             position: absolute;
+                             top: 0;
+                             left: 0;
+                             background: #070707;
+                             opacity: 0;
+                             transition: 1s;} 
+        .no1:hover .container::after{ transition: .5s;
+                                      opacity: .5;}
+        .no2:hover .container::after{ transition: .5s;
+                                      opacity: .5;}
+        .no3:hover .container::after{ transition: .5s;
+                                      opacity: .5;}
+td {position:relative;}
+    </style> 
+</head>  
+
+<body>
+    <article>
+        <table>
+            <tr class="no1">
+                <td class="col1 col">HELLO WORLD!
+                    <div class="container"></div> <!-- класс наложение 1--></td>
+                <td class="col2 col">
+                    <div class="container"></div> <!-- класс наложение 1-->
+                </td>                
+            </tr>
+            <tr class="no2">
+                <td class="col2 col">
+                    <div class="container"></div> <!-- класс наложение 1-->
+                </td>
+                <td class="col1 col">HELLO WORLD!
+                    <div class="container"></div> <!-- класс наложение 1-->
+                </td>
+            </tr>
+            <tr class="no3">
+                <td class="col1 col">HELLO WORLD!
+                    <div class="container"></div> <!-- класс наложение 1-->
+                </td>
+                <td class="col2 col">
+                    <div class="container"></div> <!-- класс наложение 1-->
+                </td>
+            </tr>
+        </table>
+    </article>
+</body>
+</html>

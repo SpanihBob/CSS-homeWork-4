@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>часы</title>
+    <style>
+      /* задаем стиль часов */
+      .example{padding: 0%;
+        width: 300px;
+        height: 300px;
+        border: 3px solid black;
+        border-radius: 50%;
+        transform: translate(150px, 150px);}
+
+        /* задаем стиль центральной точки */
+      .point{
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: black;
+        position:absolute;
+        left: 143px;
+        top: 143px;
+        z-index: 4;}
+
+        /* задаем стиль секундной стрелки */
+        .sec{
+        width: 2px;
+        height: 125px;       
+        background-color: rgb(126, 13, 13);
+        position:absolute;        /* элемент абсолютно позиционирован */
+        left: 149px;        /* сдвинут влево */
+        top: 25px;        /* сдвинут сверху */
+        transform-origin: bottom;        /* центр смещения снизу */
+        z-index: 3;        /* верхний слой */
+        animation: tictac 60s linear infinite;}        /* анимация */
+        
+        /* задаем стиль минутной стрелки */
+      .min{width: 6px;
+          height: 100px;       
+          background-color: rgb(17, 201, 124);
+          position:absolute;
+          left: 147px;
+          top: 50px;
+          transform-origin: bottom; 
+          z-index: 2;
+          border-radius: 3px;
+         
+          animation: tictac 3600s linear infinite;}
+
+      /* задаем стиль часовой стрелки */
+      .chas{
+        width: 12px;        /* это размеры */
+        height: 80px;             
+        background-color: rgb(252, 172, 0);        /* цвет */
+        position:absolute;        /* позиционирование */
+        left: 144px;
+        top: 70px;
+        z-index: 1;        /* номер слоя по порядку */
+        border-radius: 6px 6px 0 0;/* закругление */
+        animation: tictac 43200s linear infinite;}
+
+      @keyframes tictac{
+                        from{transform:rotate(0deg);}
+                        to{transform:rotate(360deg);}
+                      }
+      
+
+
+    </style>
+  </head>
+  <body>
+    <div class="example">
+      <div class="point"></div><!-- Центральная точка -->
+      <div class="sec"></div>
+      <div class="min"></div>
+      <div class="chas"></div>
+    </div>
+  </body>
+</html>
